@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>im体育 · 稳定入口与页面说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: #f5f9fc;
+            color: #1a2f3b;
+            line-height: 1.6;
+            padding: 0 1.2rem;
+        }
+
+        .page {
+            max-width: 860px;
+            margin: 2.8rem auto;
+        }
+
+        .hero-card {
+            background: linear-gradient(145deg, #dff0f7 0%, #c7e2ef 100%);
+            border-radius: 2rem;
+            padding: 2.8rem 2rem 2.2rem;
+            margin-bottom: 2.8rem;
+            box-shadow: 0 8px 20px rgba(0, 90, 100, 0.08);
+            border: 1px solid rgba(65, 150, 155, 0.15);
+        }
+
+        .hero-short {
+            font-size: 1.1rem;
+            letter-spacing: 0.02em;
+            color: #1b5b66;
+            margin-bottom: 0.6rem;
+            font-weight: 450;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 500;
+            color: #0b3f49;
+            line-height: 1.2;
+            margin-bottom: 1.2rem;
+        }
+
+        .hero-desc {
+            font-size: 1rem;
+            color: #1e4e5a;
+            max-width: 640px;
+            background: rgba(255,255,255,0.45);
+            padding: 0.8rem 1.2rem;
+            border-radius: 1.2rem;
+            backdrop-filter: blur(2px);
+        }
+
+        .grid-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 2.4rem 0 2.8rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 1.6rem;
+            padding: 1.6rem 1.4rem;
+            box-shadow: 0 4px 12px rgba(0, 35, 40, 0.04);
+            border: 1px solid #e2eef3;
+            transition: transform 0.15s ease, box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 18px rgba(0, 70, 80, 0.08);
+            border-color: #aacfd6;
+        }
+
+        .card h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #116875;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .card h3::before {
+            content: "◆";
+            font-size: 0.75rem;
+            color: #2e9aa8;
+            opacity: 0.7;
+        }
+
+        .card p {
+            font-size: 0.92rem;
+            color: #2e4a54;
+        }
+
+        .bridge-text {
+            background: #ecf4f7;
+            padding: 1.4rem 1.8rem;
+            border-radius: 1.6rem;
+            margin: 1.8rem 0 2.4rem;
+            border-left: 5px solid #3da0ad;
+            font-size: 0.98rem;
+            line-height: 1.7;
+            color: #1e404b;
+        }
+
+        .bridge-text a {
+            color: #116d7a;
+            font-weight: 500;
+            text-decoration: none;
+            border-bottom: 2px solid rgba(35, 145, 160, 0.25);
+            transition: border-color 0.2s;
+        }
+
+        .bridge-text a:hover {
+            border-bottom-color: #1d8d9b;
+        }
+
+        .faq-mini {
+            background: white;
+            border-radius: 1.6rem;
+            padding: 1.6rem 1.8rem;
+            border: 1px solid #dae9ee;
+            margin: 2.8rem 0;
+        }
+
+        .faq-mini h2 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #0e5664;
+            margin-bottom: 0.8rem;
+        }
+
+        .faq-item {
+            margin-bottom: 0.9rem;
+        }
+
+        .faq-item strong {
+            display: block;
+            font-weight: 500;
+            color: #1b5e6b;
+            font-size: 0.95rem;
+            margin-bottom: 0.15rem;
+        }
+
+        .faq-item p {
+            font-size: 0.9rem;
+            color: #2d505a;
+        }
+
+        .ending-note {
+            text-align: center;
+            padding: 1.6rem 0 2.2rem;
+            color: #42626e;
+            font-size: 0.95rem;
+            border-top: 1px solid #d3e3e9;
+        }
+
+        .ending-note a {
+            color: #0f6e7b;
+            text-decoration: none;
+            border-bottom: 1px solid #9ec8d1;
+        }
+
+        .ending-note a:hover {
+            border-bottom-color: #15818f;
+        }
+
+        @media (max-width: 600px) {
+            .page { margin: 1.8rem auto; }
+            .hero-card { padding: 2rem 1.2rem 1.6rem; }
+            h1 { font-size: 1.7rem; }
+            .grid-cards { grid-template-columns: 1fr; gap: 1rem; }
+            .bridge-text { padding: 1rem 1.2rem; }
+            .faq-mini { padding: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="hero-card">
+            <div class="hero-short">一个稳定的起点。</div>
+            <h1>页面说明 &amp; 服务入口</h1>
+            <div class="hero-desc">
+                为习惯直接访问的用户提供一条清晰路径，无需多层跳转，减少中间环节。
+            </div>
+        </div>
+
+        <div class="bridge-text">
+            从信息架构的角度来看，固定入口的价值在于可预期与低摩擦。<a href="https://homes-imsports.com">im体育</a> 作为核心站点，其页面结构围绕内容可读性与模块稳定性展开，适合日常浏览与信息检索。
+        </div>
+
+        <div class="grid-cards">
+            <div class="card">
+                <h3>直接路径</h3>
+                <p>首页承担导航与聚合功能，主要模块均在一级页面内呈现，减少不必要的点击层级。</p>
+            </div>
+            <div class="card">
+                <h3>内容分区</h3>
+                <p>按版块区分信息流，页面头部、列表区与辅助说明各自独立，方便快速定位。</p>
+            </div>
+            <div class="card">
+                <h3>视觉稳定</h3>
+                <p>采用低饱和度蓝绿配色与圆角卡片，降低视觉疲劳，适合长时间页面停留。</p>
+            </div>
+            <div class="card">
+                <h3>响应布局</h3>
+                <p>网格与卡片在移动端自动单列，文字与间距保持可读性，适配小屏操作。</p>
+            </div>
+        </div>
+
+        <div class="faq-mini">
+            <h2>常见说明</h2>
+            <div class="faq-item">
+                <strong>页面入口是否固定？</strong>
+                <p>是的。首页 URL 保持稳定，不随短期活动或版本迭代频繁变更，便于书签与记忆。</p>
+            </div>
+            <div class="faq-item">
+                <strong>内容更新频率如何？</strong>
+                <p>信息按周或双周同步，主要模块保持相对静态，避免用户因频繁变化产生困惑。</p>
+            </div>
+            <div class="faq-item">
+                <strong>移动端与桌面端体验一致吗？</strong>
+                <p>核心结构与导航逻辑一致，仅在布局上根据屏幕宽度自适应，功能无缩减。</p>
+            </div>
+        </div>
+
+        <div class="ending-note">
+            基于稳定入口与页面说明的简洁设计。<br>
+            如您需要直接访问，此处是 <a href="https://homes-imsports.com">im体育</a>。
+        </div>
+    </div>
+</body>
+</html>
