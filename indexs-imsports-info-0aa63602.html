@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>走近 im体育 · 一处安静了解的角落</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background-color: #f1f3f5;
+      color: #1e2a3a;
+      line-height: 1.6;
+      padding: 2rem 1.2rem;
+    }
+
+    .page {
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    /* 卡片与分区 */
+    .card {
+      background: #ffffff;
+      border-radius: 24px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04), 0 0 0 1px rgba(0, 0, 0, 0.02);
+      padding: 2rem 1.8rem;
+      margin-bottom: 1.8rem;
+      transition: box-shadow 0.15s ease;
+    }
+
+    .card-soft {
+      background: #fafbfc;
+      border: 1px solid #e9ecef;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+    }
+
+    /* hero 开场 - 留白与安静 */
+    .hero {
+      margin-bottom: 2.5rem;
+      text-align: center;
+      padding: 0.8rem 0;
+    }
+
+    .hero .opening {
+      font-size: 1.5rem;
+      font-weight: 350;
+      letter-spacing: 0.01em;
+      color: #2d4054;
+      margin-bottom: 0.6rem;
+      line-height: 1.4;
+    }
+
+    .hero .subhead {
+      font-size: 1rem;
+      color: #5a6b7c;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    /* 段落标题 */
+    h2 {
+      font-size: 1.3rem;
+      font-weight: 450;
+      margin-bottom: 0.75rem;
+      color: #1f2b38;
+      border-left: 4px solid #b0c4d9;
+      padding-left: 0.75rem;
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      font-weight: 450;
+      margin-bottom: 0.5rem;
+      color: #2c3e50;
+    }
+
+    p {
+      margin-bottom: 1.1rem;
+      color: #2c3e50;
+    }
+
+    .text-muted {
+      color: #5d6d7e;
+    }
+
+    .small-note {
+      font-size: 0.9rem;
+      color: #6b7b8c;
+    }
+
+    /* 特点列表——温和分点 */
+    .feature-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      margin: 1.2rem 0 0.8rem;
+    }
+
+    .feature-item {
+      flex: 1 1 180px;
+      background: #f6f8fa;
+      border-radius: 18px;
+      padding: 1.2rem 1rem;
+      border: 1px solid #e2e8ed;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+    }
+
+    .feature-item .label {
+      font-weight: 470;
+      display: block;
+      margin-bottom: 0.3rem;
+      color: #1b2a39;
+    }
+
+    .feature-item .desc {
+      font-size: 0.9rem;
+      color: #3f5368;
+    }
+
+    /* 引用/提示块 */
+    .tip-box {
+      background: #edf2f7;
+      border-radius: 20px;
+      padding: 1.2rem 1.5rem;
+      margin: 1.2rem 0;
+      border-left: 3px solid #9bb7d4;
+    }
+
+    /* FAQ 摘要样式 */
+    .faq-item {
+      margin-bottom: 0.9rem;
+      padding-bottom: 0.8rem;
+      border-bottom: 1px dashed #dce3ea;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-q {
+      font-weight: 470;
+      color: #1c2b3c;
+      margin-bottom: 0.1rem;
+    }
+
+    .faq-a {
+      color: #3f5267;
+      font-size: 0.95rem;
+    }
+
+    /* 链接 */
+    a {
+      color: #2c5778;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.1s;
+    }
+
+    a:hover {
+      border-bottom-color: #2c5778;
+    }
+
+    /* 按钮 — 温和不抢眼 */
+    .btn-ghost {
+      display: inline-block;
+      padding: 0.5rem 1.2rem;
+      border-radius: 40px;
+      background: #ffffff;
+      border: 1px solid #ccd7e2;
+      color: #2a4055;
+      font-size: 0.9rem;
+      margin-top: 0.3rem;
+      transition: background 0.1s, border-color 0.1s;
+      text-decoration: none;
+    }
+
+    .btn-ghost:hover {
+      background: #f0f4f9;
+      border-color: #9ab3cc;
+    }
+
+    /* 底边 */
+    .footer-note {
+      margin-top: 2rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #6b7d8f;
+      border-top: 1px solid #dce3eb;
+      padding-top: 1.5rem;
+    }
+
+    /* 响应式 */
+    @media (max-width: 500px) {
+      body {
+        padding: 1.2rem 0.9rem;
+      }
+      .card {
+        padding: 1.5rem 1.2rem;
+      }
+      .hero .opening {
+        font-size: 1.3rem;
+      }
+      .feature-grid {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- hero 开场短句 -->
+  <div class="hero">
+    <div class="opening">一些站点，值得被安静地了解。</div>
+    <div class="subhead">不喧哗，不追赶。只是提供一个视角，关于 <strong>im体育</strong> 的模样。</div>
+  </div>
+
+  <!-- 介绍： 站点与可信说明 -->
+  <div class="card">
+    <h2>从一次浏览说起</h2>
+    <p>
+      几年前，因为朋友偶然的分享，我第一次打开 <a href="https://indexs-imsports.com">im体育</a>。那时候并没有太多期待，只是觉得界面清爽、叙事直接。后来渐渐发现，它更像是体育信息世界里一处安静的集合——不刻意渲染情绪，把赛事、数据和资讯梳理得有条理。
+    </p>
+    <p>
+      对许多人来说，选择浏览某个站点，往往建立在“它是否可靠”的直觉上。<a href="https://indexs-imsports.com">im体育</a> 给我的感觉正是如此：没有浮夸的标语，也没有催促式的弹窗。页面结构清楚，加载稳定，至少在信息呈现这一层，做到了克制与专注。
+    </p>
+    <div class="tip-box">
+      <strong>一点个人体会：</strong> 可信的站点不一定声量大，但往往在细节里留得住人。如果你也喜欢不被打扰的浏览节奏，不妨自己去感受。
+    </div>
+  </div>
+
+  <!-- 特点列表 温和分点 -->
+  <div class="card card-soft">
+    <h2>几个值得留意的侧面</h2>
+    <div class="feature-grid">
+      <div class="feature-item">
+        <span class="label">📋 结构清晰</span>
+        <span class="desc">赛事分类、数据模块、信息层级一目了然，不用费力寻找。</span>
+      </div>
+      <div class="feature-item">
+        <span class="label">🧭 导航直接</span>
+        <span class="desc">功能入口不堆砌，主要路径两三次点击可达。</span>
+      </div>
+      <div class="feature-item">
+        <span class="label">🔒 连接稳定</span>
+        <span class="desc">长期访问中很少遇到加载中断或异常跳转。</span>
+      </div>
+      <div class="feature-item">
+        <span class="label">📄 信息克制</span>
+        <span class="desc">不滥用弹窗与推送，页面重心始终在内容本身。</span>
+      </div>
+    </div>
+    <p class="small-note" style="margin-top: 0.8rem;">
+      * 以上基于个人使用体验，每个站点的感受都可能不同，建议自己看一看。
+    </p>
+  </div>
+
+  <!-- 场景片段：什么时候会想到它 -->
+  <div class="card">
+    <h2>一个使用场景</h2>
+    <p>
+      周末的晚上，不想被社交媒体的信息流淹没，只想安静地浏览一下近期的赛事动态。打开 <a href="https://indexs-imsports.com">im体育</a>，从列表里挑自己关注的联赛，看看比分、阵容短讯或者赛程。没有多余的广告干扰，也不会有自动播放的视频抢占注意力——这种“用完即走”的体验，在今天的网络环境里反而难得。
+    </p>
+    <p>
+      或许你也有类似的习惯：比起被算法推着走，更倾向自己选择看什么、什么时候看。如果这种节奏正好符合你的期待，<a href="https://indexs-imsports.com">im体育</a> 或许能成为一个顺手的去处。
+    </p>
+  </div>
+
+  <!-- FAQ 摘要（温和问法 / 非正式） -->
+  <div class="card card-soft">
+    <h2>一些常被问到的</h2>
+    <div class="faq-item">
+      <div class="faq-q">这个站点主要提供什么？</div>
+      <div class="faq-a">简单来说，它聚合了多个体育项目的实时信息、赛事数据和相关资讯。没有复杂社交功能，偏向工具属性。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">需要注册或付费吗？</div>
+      <div class="faq-a">就我了解，基础浏览与信息查阅不需要注册。具体功能边界建议直接在站内确认。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">访问速度怎么样？</div>
+      <div class="faq-a">大部分时间响应很快，页面也较轻量。当然网络状况因人而异，可以亲自试一下。</div>
+    </div>
+    <div style="margin-top: 0.6rem;">
+      <a href="https://indexs-imsports.com" class="btn-ghost">im体育</a>
+      <span style="margin-left: 0.6rem; font-size: 0.9rem; color: #6e7f91;">（链接直达站点）</span>
+    </div>
+  </div>
+
+  <!-- 温和结尾 -->
+  <div class="footer-note">
+    <p style="margin-bottom: 0.3rem;">感谢你读到这里。一个好站点就像一间安静的阅览室——不多言语，却总能留下些什么。</p>
+    <p class="small-note">© 个人分享 · 只是描述一种浏览体验</p>
+  </div>
+</div>
+</body>
+</html>
