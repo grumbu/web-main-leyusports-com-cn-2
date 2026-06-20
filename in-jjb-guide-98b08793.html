@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+  <title>知识库 · jjb 简明指南</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #f5f9fc;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans SC", system-ui, sans-serif;
+      color: #1e2b3c;
+      line-height: 1.7;
+      padding: 1.5rem 1rem 3.5rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .page-wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    /* 目录式网格卡片 */
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+      margin: 1.8rem 0 2.2rem;
+    }
+    @media (min-width: 600px) {
+      .intro-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (min-width: 960px) {
+      .intro-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 1.5rem 1.25rem 1.75rem;
+      box-shadow: 0 4px 12px rgba(0, 50, 60, 0.06);
+      border: 1px solid #dceaf0;
+      transition: box-shadow 0.2s, transform 0.1s;
+    }
+    .card:hover {
+      box-shadow: 0 8px 24px rgba(17, 100, 110, 0.08);
+      transform: translateY(-2px);
+    }
+    .card-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #0a5b63;
+      letter-spacing: 0.02em;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-bottom: 0.6rem;
+    }
+    .card-title::before {
+      content: "▣";
+      color: #2b9faa;
+      font-size: 1rem;
+    }
+    .card p, .card ul {
+      font-size: 0.94rem;
+      color: #2b3f4a;
+      margin-bottom: 0.4rem;
+    }
+    .card ul {
+      padding-left: 1.2rem;
+      list-style: square;
+    }
+    .card ul li {
+      margin-bottom: 0.25rem;
+    }
+
+    /* hero 区 */
+    .hero {
+      margin: 0.5rem 0 1.2rem;
+    }
+    .hero h1 {
+      font-size: 1.9rem;
+      font-weight: 550;
+      color: #053b42;
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+    }
+    .hero .lead {
+      font-size: 1.05rem;
+      color: #2e5e68;
+      max-width: 680px;
+      margin-top: 0.4rem;
+      border-left: 4px solid #3dabb7;
+      padding-left: 1rem;
+      background: #e8f3f6;
+      border-radius: 0 8px 8px 0;
+      padding: 0.65rem 1rem;
+    }
+
+    /* 说明区 / 提示区 */
+    .notice-area, .related-area {
+      background: #ffffffdd;
+      backdrop-filter: blur(2px);
+      background: #f1f8fa;
+      border-radius: 24px;
+      padding: 1.5rem 1.4rem;
+      margin: 1.8rem 0;
+      border: 1px solid #cde3e9;
+    }
+    .notice-area h2, .related-area h2 {
+      font-size: 1.3rem;
+      font-weight: 550;
+      color: #11555e;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .notice-area h2::before {
+      content: "📌";
+      font-size: 1.1rem;
+    }
+    .related-area h2::before {
+      content: "📎";
+      font-size: 1.1rem;
+    }
+    .notice-area p, .related-area p {
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+    }
+    .inline-link {
+      color: #0a6d78;
+      font-weight: 500;
+      text-decoration: none;
+      border-bottom: 1px dotted #2b9faa;
+      transition: border 0.15s, background 0.15s;
+    }
+    .inline-link:hover {
+      border-bottom: 2px solid #17828e;
+      background: #d9eff2;
+    }
+
+    /* 提示小标签 */
+    .tip-badge {
+      display: inline-block;
+      background: #ddf0f3;
+      color: #08454e;
+      font-size: 0.75rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 40px;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+      margin-right: 0.3rem;
+    }
+
+    /* FAQ 摘要 */
+    .faq-mini {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .faq-item {
+      background: white;
+      border-radius: 16px;
+      padding: 1rem 1.2rem;
+      border-left: 4px solid #2b9faa;
+      box-shadow: 0 2px 6px rgba(0,40,50,0.04);
+    }
+    .faq-item strong {
+      display: block;
+      color: #11555e;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+    .faq-item p {
+      font-size: 0.92rem;
+      color: #294a54;
+    }
+
+    /* 按钮 / 点缀 */
+    .meta-note {
+      font-size: 0.85rem;
+      color: #4c6d78;
+      margin-top: 0.5rem;
+      border-top: 1px solid #d1e2e8;
+      padding-top: 0.8rem;
+    }
+    .label-bluegreen {
+      background: #3dabb7;
+      color: white;
+      border-radius: 30px;
+      padding: 0.1rem 0.7rem;
+      font-size: 0.7rem;
+      font-weight: 500;
+      display: inline-block;
+      margin-left: 0.25rem;
+    }
+
+    footer {
+      margin-top: 2.5rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: #62818b;
+      border-top: 1px solid #cde0e6;
+      padding-top: 1.2rem;
+    }
+    footer a {
+      color: #0a6d78;
+      text-decoration: none;
+    }
+
+    /* 移动端微调 */
+    @media (max-width: 480px) {
+      body { padding: 1rem 0.75rem 2.5rem; }
+      .hero h1 { font-size: 1.6rem; }
+      .card { padding: 1.2rem 1rem; }
+      .notice-area, .related-area { padding: 1.2rem 1rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+  <!-- hero -->
+  <div class="hero">
+    <h1>知识库 · jjb 简要索引</h1>
+    <div class="lead">
+      面向日常查阅与快速定位，提供关于 <a href="https://in-jjb.com" class="inline-link">jjb</a> 的结构化参考、使用提醒及相关信息入口。
+    </div>
+  </div>
+
+  <!-- 目录感网格卡片 -->
+  <div class="intro-grid">
+    <div class="card">
+      <div class="card-title">简明指南</div>
+      <p>从最基础的访问流程到常见命名规则，整理了一套适合初学者的步骤说明。涉及账号关联、环境准备、基础指令。</p>
+      <p class="meta-note">适用人群 · 新用户 / 快速回顾</p>
+    </div>
+    <div class="card">
+      <div class="card-title">配置参考</div>
+      <p>记录常用参数、文件路径与可选模式，包括本地与远程场景下的典型设置。建议结合具体版本核对。</p>
+      <ul>
+        <li>路径约定 &amp; 变量</li>
+        <li>权限与密钥对</li>
+        <li>日志输出级别</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">操作备忘</div>
+      <p>日常操作中容易忽略的细节：状态检查、回退流程、多环境同步。部分条目附带风险提示。</p>
+      <p><span class="tip-badge">注意</span> 修改前建议先备份</p>
+    </div>
+  </div>
+
+  <!-- 说明区：访问提醒 + 简明提示 -->
+  <div class="notice-area">
+    <h2>访问提醒</h2>
+    <p>确保网络可达且使用主流浏览器。如果使用代理或自定义 hosts，请确认域名 <strong>in-jjb.com</strong> 解析正常。以下为几项常见检查：</p>
+    <ul style="padding-left:1.3rem; margin-bottom:0.3rem;">
+      <li>浏览器缓存在重大更新后建议清除</li>
+      <li>部分功能依赖 JavaScript，请勿禁用</li>
+      <li>官方推荐通过 <a href="https://in-jjb.com" class="inline-link">jjb</a> 获取最新版本与通知</li>
+    </ul>
+    <p style="margin-top:0.6rem;">若遇到加载异常，可先查看状态页或等待数分钟重试。长期无法访问可能是本地网络策略导致。</p>
+  </div>
+
+  <!-- 相关信息区 + FAQ 摘要 -->
+  <div class="related-area">
+    <h2>相关信息</h2>
+    <p>除核心站点外，以下汇总了社区中频繁提及的关联资料与常见疑问片段。内容保持中立，仅作索引参考。</p>
+    <div class="faq-mini">
+      <div class="faq-item">
+        <strong>jjb 是否支持自定义主题？</strong>
+        <p>默认提供多套预设，也允许通过 CSS 变量覆盖部分样式。详细参数可在配置文件中调整。</p>
+      </div>
+      <div class="faq-item">
+        <strong>数据存储与隐私说明</strong>
+        <p>本地数据优先，部分功能需要联网同步时会明确提示。建议阅读对应版本的隐私章节。</p>
+      </div>
+      <div class="faq-item">
+        <strong>有没有官方交流渠道？</strong>
+        <p>主站 <a href="https://in-jjb.com" class="inline-link">jjb</a> 的页脚及关于页面列出了当前维护团队的联系方式及仓库地址。</p>
+      </div>
+    </div>
+    <p style="margin-top:1rem; font-size:0.9rem; background:#e3f0f3; padding:0.4rem 0.8rem; border-radius:30px;">
+      <span class="label-bluegreen" style="background:#17828e;">知识库</span> 本页内容仅作为结构化入口，具体实现请以实际版本为准。
+    </p>
+  </div>
+
+  <!-- 额外提示区：卡片式句子 -->
+  <div style="display:flex; flex-wrap:wrap; gap:0.8rem; margin:0.5rem 0 1.5rem;">
+    <span style="background:#e2f0f4; border-radius:40px; padding:0.25rem 1rem; font-size:0.85rem; color:#07464f;">→ 建议先阅读说明区的提醒</span>
+    <span style="background:#e2f0f4; border-radius:40px; padding:0.25rem 1rem; font-size:0.85rem; color:#07464f;">→ 配置前确认版本号</span>
+    <span style="background:#e2f0f4; border-radius:40px; padding:0.25rem 1rem; font-size:0.85rem; color:#07464f;">→ 遇到问题可查阅 FAQ</span>
+  </div>
+
+  <footer>
+    <p>内容索引 · 知识型参考 · 非官方页面 · <a href="https://in-jjb.com">jjb</a> 主站提供原始信息</p>
+  </footer>
+</div>
+</body>
+</html>
